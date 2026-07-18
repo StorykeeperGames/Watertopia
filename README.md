@@ -1,2 +1,0 @@
-# Watertopia
-Game jam repo
