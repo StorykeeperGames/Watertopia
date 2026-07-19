@@ -17,9 +17,6 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bodal"]
 albedo_color = Color(0.16574928, 0.6638973, 5.0055983e-06, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdmts"]
-albedo_color = Color(0.7798072, 0.36798385, 3.272891e-06, 1)
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iloao"]
 
 [node name="Node3D" type="Node3D" unique_id=1376765331]
@@ -40,10 +37,6 @@ material = SubResource("StandardMaterial3D_bodal")
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1914947685]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1532984, 0.51829505, 12.295738)
 script = ExtResource("1_jaeev")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CharacterBody3D" unique_id=1830901005]
-size = Vector3(1, 2, 1)
-material = SubResource("StandardMaterial3D_kdmts")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=389539152]
 shape = SubResource("CapsuleShape3D_iloao")
