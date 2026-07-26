@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5ju3fr81ftqy"]
 
-[ext_resource type="Script" uid="uid://7qywgsa62gif" path="res://scripts/player.gd" id="1_jaeev"]
+[ext_resource type="PackedScene" uid="uid://csegrkxriv06d" path="res://meshes/test_level.glb" id="1_u80x2"]
+[ext_resource type="PackedScene" uid="uid://kpqyixdluxx2" path="res://scenes/player.tscn" id="2_u80x2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ewcy1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -14,12 +15,9 @@ background_mode = 2
 sky = SubResource("Sky_jaeev")
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bodal"]
-albedo_color = Color(0.16574928, 0.6638973, 5.0055983e-06, 1)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iloao"]
-
 [node name="Node3D" type="Node3D" unique_id=1376765331]
+
+[node name="test_level" parent="." unique_id=1114913234 instance=ExtResource("1_u80x2")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=15139150]
 environment = SubResource("Environment_u80x2")
@@ -28,24 +26,5 @@ environment = SubResource("Environment_u80x2")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 11.383643, 0)
 shadow_enabled = true
 
-[node name="Ground" type="CSGBox3D" parent="." unique_id=518678596]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-use_collision = true
-size = Vector3(40, 1, 40)
-material = SubResource("StandardMaterial3D_bodal")
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1914947685]
+[node name="Player" parent="." unique_id=356135591 instance=ExtResource("2_u80x2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1532984, 0.51829505, 12.295738)
-script = ExtResource("1_jaeev")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=389539152]
-shape = SubResource("CapsuleShape3D_iloao")
-
-[node name="CameraPivot" type="Node3D" parent="CharacterBody3D" unique_id=738159141]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-
-[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/CameraPivot" unique_id=1958317027]
-spring_length = 3.0
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraPivot/SpringArm3D" unique_id=1140296588]
-transform = Transform3D(1, 0, 0, 0, 0.8303957, 0.55717444, 0, -0.55717444, 0.8303957, -7.3448534, 13.547258, 6.4390717)
