@@ -41,11 +41,13 @@ func _physics_process(delta: float) -> void:
 		# animating by calling an animation manually
 		# anim_player.play("freehand_run", 0.2)
 	elif current_speed > 0:
-		anim_tree.set("parameters/movement/transition_request", "walk")
+		# anim_tree.set("parameters/movement/transition_request", "walk")
 		# anim_player.play("freehand_walk", 0.2, lerp(0.5, 1.25, current_speed / 4))
+		pass
 	else:
 		anim_tree.set("parameters/movement/transition_request", "idle")
 		# anim_player.play("freehand_idle")
+		pass
 
 
 # turn the character towards the camera movement direction

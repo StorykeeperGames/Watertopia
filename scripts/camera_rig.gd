@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		look_input = -mouse_input * turn_rate * delta
 
-	rotation_degrees.x += look_input.y
+	rotation_degrees.x += -look_input.y
 	rotation_degrees.y += look_input.x
 	rotation_degrees.x = clampf(rotation_degrees.x, -70, 50)
 
