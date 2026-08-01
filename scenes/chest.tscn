@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c8lbcb5bu0bug"]
+
+[ext_resource type="Script" uid="uid://cskcdwsgymrvm" path="res://scripts/chest.gd" id="1_sy5e1"]
+[ext_resource type="PackedScene" uid="uid://cj4ua8lqxdkpk" path="res://scenes/interactable.tscn" id="2_gqd3d"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bw40y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_18uda"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bw40y"]
+
+[node name="chest" type="StaticBody3D" unique_id=1925555122]
+script = ExtResource("1_sy5e1")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=520880518]
+mesh = SubResource("BoxMesh_bw40y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=715294534]
+shape = SubResource("BoxShape3D_18uda")
+
+[node name="Interactable" parent="." unique_id=1919550307 instance=ExtResource("2_gqd3d")]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=837543024]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_bw40y")
+debug_color = Color(0.8583605, 0.0007177258, 0.88113296, 0.41960785)

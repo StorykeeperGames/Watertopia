@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://csegrkxriv06d" path="res://meshes/test_level.glb" id="1_u80x2"]
 [ext_resource type="PackedScene" uid="uid://dmsq5jyw7qgdb" path="res://scenes/low_poly_player.tscn" id="2_bodal"]
 [ext_resource type="Script" uid="uid://dx6gd7dei7ov5" path="res://scripts/puzzle.gd" id="3_0auqf"]
-[ext_resource type="PackedScene" uid="uid://cj4ua8lqxdkpk" path="res://scenes/interactable.tscn" id="3_bodal"]
-[ext_resource type="Script" uid="uid://cskcdwsgymrvm" path="res://scripts/chest.gd" id="3_kdmts"]
+[ext_resource type="PackedScene" uid="uid://c8lbcb5bu0bug" path="res://scenes/chest.tscn" id="4_kdmts"]
+[ext_resource type="Script" uid="uid://bawvwiry3opog" path="res://scripts/door.gd" id="4_y16t7"]
+[ext_resource type="Script" uid="uid://b5d013ifib0g" path="res://scripts/pipe.gd" id="5_0auqf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ewcy1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,11 +19,11 @@ background_mode = 2
 sky = SubResource("Sky_jaeev")
 glow_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_bw40y"]
+[sub_resource type="BoxMesh" id="BoxMesh_x8pym"]
+size = Vector3(2, 5, 36)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_18uda"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bw40y"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_iloao"]
+size = Vector3(2, 5, 36)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_bw40y"]
 
@@ -43,24 +44,52 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1532984, 0.9464376, 12.2957
 [node name="Puzzle" type="Node" parent="." unique_id=834844594]
 script = ExtResource("3_0auqf")
 
-[node name="chest" type="StaticBody3D" parent="Puzzle" unique_id=50173895]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5050247, 0)
-script = ExtResource("3_kdmts")
+[node name="door" type="StaticBody3D" parent="Puzzle" unique_id=1324450047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.778828, 2.3448205, -6.5421743)
+script = ExtResource("4_y16t7")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Puzzle/chest" unique_id=292559095]
-mesh = SubResource("BoxMesh_bw40y")
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Puzzle/door" unique_id=736481512]
+mesh = SubResource("BoxMesh_x8pym")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/chest" unique_id=1785596366]
-shape = SubResource("BoxShape3D_18uda")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/door" unique_id=1871610320]
+shape = SubResource("BoxShape3D_iloao")
 
-[node name="Interactable" parent="Puzzle/chest" unique_id=1919550307 instance=ExtResource("3_bodal")]
-collision_layer = 2
+[node name="switch1" parent="Puzzle" unique_id=1925555122 instance=ExtResource("4_kdmts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4159384, 0.5050247, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/chest/Interactable" unique_id=905183641]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
-shape = SubResource("BoxShape3D_bw40y")
-debug_color = Color(0.8583605, 0.0007177258, 0.88113296, 0.41960785)
+[node name="switch2" parent="Puzzle" unique_id=118224216 instance=ExtResource("4_kdmts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8090916, 0.5, 0)
 
-[node name="Pipe" type="CSGMesh3D" parent="Puzzle" unique_id=1003343740]
-transform = Transform3D(-8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0, 0, 2, -0.658093, 3.2978516, -8.375336)
+[node name="switch3" parent="Puzzle" unique_id=1512568514 instance=ExtResource("4_kdmts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0745013, 0.5, 0)
+
+[node name="switch4" parent="Puzzle" unique_id=1810016779 instance=ExtResource("4_kdmts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2702317, 0.5, 0)
+
+[node name="switch5" parent="Puzzle" unique_id=376699696 instance=ExtResource("4_kdmts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7085967, 0.5, 0)
+
+[node name="Pipe1" type="CSGMesh3D" parent="Puzzle" unique_id=1003343740]
+transform = Transform3D(-8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0, 0, 2, -10.6580925, 3.2978516, -9.375336)
 mesh = SubResource("CylinderMesh_bw40y")
+script = ExtResource("5_0auqf")
+
+[node name="Pipe2" type="CSGMesh3D" parent="Puzzle" unique_id=1580575990]
+transform = Transform3D(-8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0, 0, 2, -6.661968, 3.2978516, -9.375336)
+mesh = SubResource("CylinderMesh_bw40y")
+script = ExtResource("5_0auqf")
+
+[node name="Pipe3" type="CSGMesh3D" parent="Puzzle" unique_id=1996294274]
+transform = Transform3D(-8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0, 0, 2, -2.6580925, 3.2978516, -9.375336)
+mesh = SubResource("CylinderMesh_bw40y")
+script = ExtResource("5_0auqf")
+
+[node name="Pipe4" type="CSGMesh3D" parent="Puzzle" unique_id=323766698]
+transform = Transform3D(-8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0, 0, 2, 1.341907, 3.2978516, -9.375336)
+mesh = SubResource("CylinderMesh_bw40y")
+script = ExtResource("5_0auqf")
+
+[node name="Pipe5" type="CSGMesh3D" parent="Puzzle" unique_id=2106519694]
+transform = Transform3D(-8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0, 0, 2, 5.341907, 3.2978516, -9.375336)
+mesh = SubResource("CylinderMesh_bw40y")
+script = ExtResource("5_0auqf")

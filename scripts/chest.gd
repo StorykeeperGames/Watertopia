@@ -19,7 +19,7 @@ func _on_interact_triggered(message: String) -> void:
 		new_material.albedo_color = Color(1, 0, 0)  # Red
 		child_mesh.material_override = new_material
 
-		interact_triggered.emit(message)
+		interact_triggered.emit(message, self.name)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

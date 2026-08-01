@@ -38,13 +38,13 @@ node_connections = [&"output", 0, &"movement", &"movement", 0, &"Animation 2", &
 script = ExtResource("1_fu1x7")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1684573919]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.4835947, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 3.2938154e-08, 0.9263074, -0.3767686, 8.098037e-08, -0.3767686, -0.9263074, 0, 1.4835947, 0)
 top_level = true
-spring_length = 2.5
+spring_length = 3.5
 script = ExtResource("2_77j0g")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1982179985]
-transform = Transform3D(-1, -2.7923427e-08, 8.284337e-08, 0, 0.9476177, 0.31940678, -8.742278e-08, 0.31940678, -0.9476177, 2.4772447e-07, 2.554319, -2.8336377)
+transform = Transform3D(-1, 1.090614e-08, 8.673981e-08, 9.570988e-15, 0.9921882, -0.12475152, -8.742275e-08, -0.12475152, -0.9921882, 2.4772447e-07, 2.5543184, -2.8336377)
 
 [node name="Mesh" parent="." unique_id=1981571941 instance=ExtResource("1_s5sj0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
